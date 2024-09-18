@@ -1,0 +1,42 @@
+body.dark-mode .footer-container {
+    background: linear-gradient(225deg, rgba(50, 79, 175, 0.9), 50%, rgba(0, 0, 0, 0.792));
+}
+
+.footer-container{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 2rem;
+    background: linear-gradient(225deg, rgba(0, 0, 0, 0.792), 50%,rgba(50, 79, 175, 0.9));
+    color: #fff;
+    margin-bottom: 1rem;
+    border-radius: 0.725rem;
+    transition: all 300ms ease;
+}
+.links-container{
+    display:flex;
+    flex-flow: wrap row;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+.link-container-column{
+    display: flex;
+    flex-flow: nowrap column;
+    justify-content: flex-start; 
+}
+
+.footer-link {
+    color: #ccc;
+    text-decoration: none;
+    margin-bottom: 1rem;
+    transition: color 0.2s ease-in-out;
+}
+.footer-link:hover {
+    color: #fff;
+}
+.footer-link:active {
+    color: #aaa;
+}
+.misc-container{
+    margin-top: 5rem;
+}

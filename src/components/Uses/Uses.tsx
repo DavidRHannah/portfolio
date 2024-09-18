@@ -1,9 +1,11 @@
-import React from 'react'
+import React from 'react';
+import './Uses.css';
+import PageHeader from '../PageHeader/PageHeader';
 
 const Uses = () => {
   return (
-    <div>
-      Uses
+    <div className='uses-container'>
+      <PageHeader title="Uses" description="This is what I use for programming every day." />
     </div>
   )
 }

@@ -1,15 +1,20 @@
+body{
+    min-width: 28rem;
+    max-width: 60rem;
+    margin: 1rem auto;
+    
+    transition: all 300ms ease;
+}
 .navbar-container{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: linear-gradient(.05turn, rgba(50, 79, 175, 0.9), 30%, rgba(0, 0, 0, 0.792));
+    background: linear-gradient(.05turn, rgba(0, 0, 0, 0.9), 30%, rgba(50, 79, 175, 0.792));
     border-radius: 0.725rem;
     padding: 0.725rem;
-    min-width: 28rem;
-    max-width: 50rem;
-    margin: 1rem auto;
     position: sticky;
     z-index: 10;
+    transition: all 200ms ease;
 }
 
 .left-container{
@@ -105,25 +110,21 @@ body {
     background-color: #ffffff;
     color: #333;
   }
-  
-  .navbar-container {
-    background: linear-gradient(.05turn, rgba(50, 79, 175, 0.9), 30%, rgba(0, 0, 0, 0.792));
-  }
-  
-  body.dark-mode {
+
+body.dark-mode {
     background-color: #121212;
     color: #e0e0e0;
-  }
+}
+
+body.dark-mode .navbar-container {
+    background: linear-gradient(.05turn, rgba(50, 79, 175, 0.9), 30%, rgba(0, 0, 0, 0.792));
+}
   
-  body.dark-mode .navbar-container {
-    background: linear-gradient(.05turn, rgba(0, 0, 0, 0.9), 30%, rgba(50, 79, 175, 0.792));
-  }
-  
-  body.dark-mode a {
+body.dark-mode a {
     color: #aaa;
-  }
+}
   
-  body.dark-mode a.active {
+body.dark-mode a.active {
     color: #fff;
-  }
+}
     
