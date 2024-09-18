@@ -1,75 +1,64 @@
-import React,{ useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import './Header.css';
 import DRH_Logo from './icons/drh-icon-darkmode.svg';
-import ToggleIcon from './icons/toggle-icon.svg'
-import CommandIcon from './icons/command-icon.svg'
+import ToggleIcon from './icons/toggle-icon.svg';
+import CommandIcon from './icons/command-icon.svg';
 
 const Header = () => {
-  const [activeLink, setActiveLink] = useState('dashboard');
+  const location = useLocation();
+  const getActiveLink = (path: string) => location.pathname === path ? 'active' : '';
 
-  const handleClick = (link:string) => {
-    console.log(link);
-    setActiveLink(link);
-  };
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    const storedPreference = localStorage.getItem('theme');
+    return storedPreference === 'dark';
+  });
+
+  useEffect(() => {
+    document.body.classList.toggle('dark-mode', isDarkMode);
+    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+  }, [isDarkMode]);
 
   return (
     <div className="navbar-container">
       <div className="left-container">
         <div className="img-container">
-          <a
-              href="./"
-              className={`${activeLink === 'home' ? 'active' : ''}`}
-              onClick={() => handleClick('home')}
-            >
-            <img src={DRH_Logo} alt="DRH Logo" className="drh-logo" />
-
-          </a>
+          <Link to="/" className={getActiveLink('/')}>
+            <img 
+              src={DRH_Logo} 
+              alt="DRH Logo" 
+              className="drh-logo" />
+          </Link>
         </div>
       </div>
       <div className="right-container">
       <div className="link-container">
-          <a
-            href="./dashboard"
-            className={`${activeLink === 'dashboard' ? 'active' : ''}`}
-            onClick={() => handleClick('dashboard')}
-          >
+          <Link to="/dashboard" className={getActiveLink('/dashboard')}>
             Dashboard
-          </a>
-          <a
-            href="./projects"
-            className={`${activeLink === 'projects' ? 'active' : ''}`}
-            onClick={() => handleClick('projects')}
-          >
+          </Link>
+          <Link to="/projects" className={getActiveLink('/projects')}>
             Projects
-          </a>
-          <a
-            href="./about"
-            className={`${activeLink === 'about' ? 'active' : ''}`}
-            onClick={() => handleClick('about')}
-          >
+          </Link>
+          <Link to="/about" className={getActiveLink('/about')}>
             About
-          </a>
-          <a
-            href="./guestbook"
-            className={`${activeLink === 'guestbook' ? 'active' : ''}`}
-            onClick={() => handleClick('guestbook')}
-          >
+          </Link>
+          <Link to="/guestbook" className={getActiveLink('/guestbook')}>
             Guestbook
-          </a>
-          <a
-            href="./uses"
-            className={`${activeLink === 'uses' ? 'active' : ''}`}
-            onClick={() => handleClick('uses')}
-          >
+          </Link>
+          <Link to="/uses" className={getActiveLink('/uses')}>
             Uses
-          </a>
+          </Link>
         </div>
         <div className="button-container">
-          <button className="toggle">
-            <img src={ToggleIcon} alt="Toggle viewmode" />
+          <button className="toggle" onClick={()=>setIsDarkMode(!isDarkMode)}>
+            <img 
+              src={ToggleIcon} 
+              alt="Toggle viewmode" />
           </button>
           <button className="command">
-            <img src={CommandIcon} alt="Command" />
+            <img 
+              src={CommandIcon} 
+              alt="Command" />
           </button>
         </div>
       </div>
