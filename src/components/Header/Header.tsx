@@ -14,11 +14,11 @@ const Header = () => {
       </div>
       <div className="right-container">
         <div className="link-container">
-          <div className="link"><a href="./dashboard">Dashboard</a></div>
-          <div className="link"><a href="./projects">Projects</a></div>
-          <div className="link"><a href="./about">About</a></div>
-          <div className="link"><a href="./guestbook">Guestbook</a></div>
-          <div className="link"><a href="./uses">Uses</a></div>          
+          <a className="link active" href="./dashboard">Dashboard</a>
+          <a href="./projects">Projects</a>
+          <a href="./about">About</a>
+          <a href="./guestbook">Guestbook</a>
+          <a href="./uses">Uses</a>          
         </div>
         <div className="button-container">
           <button className="toggle">
