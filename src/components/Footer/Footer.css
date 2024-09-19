@@ -16,7 +16,7 @@ body.dark-mode .footer-container {
 .links-container{
     display:flex;
     flex-flow: wrap row;
-    justify-content: space-between;
+    justify-content: space-evenly;
     margin-top: 1rem;
 }
 .link-container-column{

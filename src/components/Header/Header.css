@@ -3,7 +3,7 @@ body{
     max-width: 60rem;
     margin: 1rem auto;
     
-    transition: all 300ms ease;
+    transition: all 200ms ease;
 }
 .navbar-container{
     display: flex;

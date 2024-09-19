@@ -1,0 +1,97 @@
+.card-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;    
+    max-width: 16rem;
+    min-height: 30rem;
+    padding: 1rem;
+    background: linear-gradient(45deg, rgba(245, 137, 137, 0.37), rgba(116, 116, 250, 0.37));
+    border-radius: 1rem;
+    transition: all 200ms ease;
+}
+body.dark-mode .card-container{
+    box-shadow: rgba(231, 231, 231, 0.13) 0px 4px 16px, rgba(218, 218, 218, 0.08) 0px 8px 32px;    
+    transition: all 200ms ease;
+}
+body.dark-mode .card-container:hover{
+    box-shadow: none;
+}
+.card-container:hover{
+    box-shadow: none;
+}
+.project-info-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.725rem;
+}
+.project-screenshot-container{
+    display: flex;
+    justify-content: center;
+}
+.project-screenshot-container img{
+    width: 250px;
+    height: 250px;
+    border-radius: 1rem;
+}
+.info-text-container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 0.5rem;
+    gap: 0.3rem;
+}
+.project-title{
+    font-size: larger;
+    font-weight: bold;
+}
+.project-subtitle{
+    font-size: smaller;
+    color: gray;
+}
+body.dark-mode .project-subtitle{
+    color: rgb(206, 206, 206);
+}
+
+.tech-stack-container{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 16rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    gap: 0.725rem;
+}
+.tech-container{
+    background-color: rgb(179, 225, 253);
+    border-radius: 0.3rem;
+    font-size: small;
+    font-weight: 600;
+    color: black;
+    padding: 0.3rem;
+    border: solid 0.1rem rgba(0, 0, 0, 0.171);
+}
+
+.project-links{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1rem;
+}
+.icon{
+    width: 1.5rem;
+}
+.icon.invert{
+    filter: invert(100%);
+}
+body.dark-mode .icon.invert{
+    filter: none;
+}
+.icon.invert-reverse{
+    filter: none;
+}
+body.dark-mode .icon.invert-reverse{
+    filter: invert(100%);
+}

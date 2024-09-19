@@ -1,0 +1,28 @@
+.projects-container{
+    margin-bottom: 4rem;
+}
+.project-cards-container{
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-auto-rows: 1fr;
+    column-gap: 1rem;
+    row-gap: 1rem;
+    place-items: center;    
+    transition: ease all 500ms;
+}
+@media screen and (max-width: 1024px) {
+    .project-cards-container{
+        grid-template-columns: 50% 50%;
+        column-gap: 1rem;
+        row-gap: 1rem;
+        place-items: center;
+    }
+}
+@media screen and (max-width: 768px) {
+    .project-cards-container{
+        grid-template-columns: 100%;
+        column-gap: 1rem;
+        row-gap: 1rem;
+        place-items: center;
+    }
+}
