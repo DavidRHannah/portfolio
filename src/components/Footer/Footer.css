@@ -1,42 +1,62 @@
-body.dark-mode .footer-container {
-    background: linear-gradient(225deg, rgba(50, 79, 175, 0.9), 50%, rgba(0, 0, 0, 0.792));
-}
-
-.footer-container{
+/* Light Mode */
+.footer-container {
+    backdrop-filter: var(--navbar-blur);
+    -webkit-backdrop-filter: var(--navbar-blur);
+    border-radius: var(--nav-radius);
+    background: var(--light-footer-bg);
+    color: var(--light-text);
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     padding: 2rem;
-    background: linear-gradient(225deg, rgba(0, 0, 0, 0.792), 50%,rgba(50, 79, 175, 0.9));
-    color: #fff;
     margin-bottom: 1rem;
-    border-radius: 0.725rem;
-    transition: all 300ms ease;
-}
-.links-container{
-    display:flex;
-    flex-flow: wrap row;
-    justify-content: space-evenly;
-    margin-top: 1rem;
-}
-.link-container-column{
-    display: flex;
-    flex-flow: nowrap column;
-    justify-content: flex-start; 
+    transition: all var(--transition-speed) ease;
 }
 
+/* Dark Mode */
+body.dark-mode .footer-container {
+    backdrop-filter: var(--navbar-blur);
+    -webkit-backdrop-filter: var(--navbar-blur);
+    border-radius: var(--nav-radius);
+    background: var(--dark-footer-bg);
+    color: var(--dark-text);
+}
+
+/* Links Container */
+.footer-link-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    gap: 20rem;
+    margin-top: 1rem;
+}
+
+.link-container-column {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+}
+
+/* Footer Links */
 .footer-link {
-    color: #ccc;
+    color: var(--link-color);
     text-decoration: none;
-    margin-bottom: 1rem;
-    transition: color 0.2s ease-in-out;
+    margin-bottom: 2rem;
+    transition: color var(--transition-speed) ease-in-out;
 }
+
 .footer-link:hover {
-    color: #fff;
+    color: var(--link-hover);
 }
-.footer-link:active {
-    color: #aaa;
+
+body.dark-mode .footer-link {
+    color: var(--dark-link-color);
 }
-.misc-container{
+
+body.dark-mode .footer-link:hover {
+    color: var(--dark-link-hover);
+}
+
+.misc-container {
     margin-top: 5rem;
 }

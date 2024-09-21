@@ -47,14 +47,14 @@ const Header: React.FC = () => {
   return (
     <div className="navbar-container">
       <div className="left-container">
-        <div className="img-container">
+        <div className="navbar-img-container">
           <Link to="/" className={getActiveLink('/')}>
             <img src={DRH_Logo} alt="DRH Logo" className="drh-logo" />
           </Link>
         </div>
       </div>
       <div className="right-container">
-        <div className="link-container">
+        <div className="navbar-link-container">
           <Link to="/dashboard" className={getActiveLink('/dashboard')}>Dashboard</Link>
           <Link to="/projects" className={getActiveLink('/projects')}>Projects</Link>
           <Link to="/about" className={getActiveLink('/about')}>About</Link>

@@ -9,8 +9,8 @@ interface PageHeaderProps {
 const PageHeader: React.FC<PageHeaderProps> = ({ title, description }) => {
   return (
     <div className="page-header-container">
-      <h1>{title}</h1>
-      <p>{description}</p>
+      <div className="title">{title}</div>
+      <div className="desc">{description}</div>
       <hr />
     </div>
   );

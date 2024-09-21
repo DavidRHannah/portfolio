@@ -6,7 +6,7 @@ import './Footer.css';
 const Footer = () => {
   return (
     <div className='footer-container'>
-      <div className="links-container">
+      <div className="footer-link-container">
         <div className="link-container-column">
         <Link to="/" className="footer-link">
           Home
