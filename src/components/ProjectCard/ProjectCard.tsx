@@ -4,7 +4,6 @@ import './ProjectCard.css';
 import GithubIcon from './icons/github-mark/github-mark.svg';
 import RedirectIcon from './icons/open-in-new-icon.png';
 
-
 interface ProjectCardProps {
   title: string;
   subtitle: string;
