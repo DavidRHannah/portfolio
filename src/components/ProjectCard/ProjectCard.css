@@ -1,18 +1,23 @@
+@import url(../../themes.scss);
 .card-container{
+    transition: all var(--transition-speed) ease;
+    -webkit-backdrop-filter: var(--navbar-blur);
+    backdrop-filter: var(--navbar-blur);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;    
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;    
     max-width: 16rem;
     min-height: 30rem;
     padding: 1rem;
-    /* background: linear-gradient(135deg, rgba(240, 240, 240, 1), rgba(0, 0, 0, 1)); */
+    background-color: var(--light-navbar-bg);
     border-radius: 1rem;
-    transition: all 200ms ease;
+    transition: all var(--transition-speed) ease;
 }
 body.dark-mode .card-container{
-    box-shadow: rgba(231, 231, 231, 0.13) 0px 4px 16px, rgba(218, 218, 218, 0.08) 0px 8px 32px;    
-    transition: all 200ms ease;
+    background-color: var(--dark-navbar-bg);
+    box-shadow: rgba(12, 12, 12, 0.13) 0px 4px 16px, rgba(218, 218, 218, 0.08) 0px 8px 32px;    
+    transition: all var(--transition-speed) ease;
 }
 body.dark-mode .card-container:hover{
     box-shadow: none;

@@ -10,13 +10,38 @@ body {
   min-width: 28rem;
   max-width: 60rem;
   margin: 1rem auto;
+  margin-top: 0;
   color: var(--light-text);
-  background-color: var(--light-bg);
   transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
 } 
+
 body.dark-mode {
   background-color: var(--dark-bg);
   color: var(--dark-text);
+}
+
+.gradient-top img, .gradient-bottom img {
+  object-fit: cover; 
+}
+
+body.dark-mode {
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
+}
+
+.gradient-top, .gradient-bottom {
+  position: fixed;
+  margin: auto;
+  height: 200px;
+  z-index: -99;
+}
+
+.gradient-top {
+  top: 0;
+}
+
+.gradient-bottom {
+  bottom: 0;
 }
 
 code {

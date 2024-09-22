@@ -122,12 +122,10 @@ body.dark-mode .button-container button img {
     border-radius: 0.2rem;
     padding: 0.1rem;
 }
-body.dark-mode .button-container button img:hover {
-    background-color: var(--dark-button-hover-bg);
-    filter: var(--dark-icon-filter);
-}
 
 .dropdown {
+    -webkit-backdrop-filter: var(--navbar-blur);
+    backdrop-filter: var(--navbar-blur);
     border-radius: var(--dropdown-radius);
     background-color: var(--dropdown-bg);
     flex-direction: column;
