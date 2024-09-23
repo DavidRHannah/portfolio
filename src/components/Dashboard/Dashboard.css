@@ -1,0 +1,112 @@
+@import url(../../themes.scss);
+
+.dashboard-content-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 4rem;
+}
+@media (max-width: 600px) {
+    .dashboard-content-container{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+}
+@media (max-width: 460px) {
+    .dashboard-content-container{
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;        
+    }
+}
+.analytic-container{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.6rem;
+
+    margin-left: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+    border-radius: 0.4rem;
+    border: solid 1px rgb(190, 190, 190);
+}
+.analytic-top-container{
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0.8rem;
+    align-items: center;
+    justify-content: space-between;
+}
+.analytic-top-container .logo-container img{
+    width: 1.6rem;
+}
+.analytic-top-container .number-container{
+    font-size: 2rem;
+    font-weight: 600;
+    padding-bottom: 1px;
+}
+.analytic-bottom-container .analytic-title{
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+.analytic-container.coding-hours .analytic-top-container .number-container{
+    color: rgb(4, 92, 255);
+}
+.analytic-container.coding-hours .analytic-top-container .logo-container{
+    filter: invert(9%) sepia(99%) saturate(5630%) hue-rotate(246deg) brightness(110%) contrast(148%);
+}
+
+@keyframes swipeUpOut {
+    0% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes swipeUpIn {
+    0% {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+}
+  
+.analytic-container .swipe-out {
+    animation: swipeUpOut 0.5s ease forwards;
+}
+
+.analytic-container .swipe-in {
+    animation: swipeUpIn 0.5s ease forwards;
+}
+
+/* Dark Mode */
+
+body.dark-mode .analytic-container{
+    border: solid 1px rgb(92, 91, 91);
+}
+body.dark-mode .analytic-container.coding-hours .analytic-top-container .number-container{
+    color: rgb(4, 70, 255);
+}
+body.dark-mode .analytic-container.coding-hours .analytic-top-container .logo-container{
+    filter: invert(9%) sepia(99%) saturate(5630%) hue-rotate(246deg) brightness(160%) contrast(148%);
+}
+body.dark-mode .analytic-container.github-followers .analytic-top-container .logo-container{
+    filter: invert(100%);
+}
+body.dark-mode .analytic-container.github-stars .analytic-top-container .logo-container{
+    filter: invert(100%);
+}

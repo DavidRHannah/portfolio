@@ -1,0 +1,61 @@
+@keyframes swipeUpOut {
+    0% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes swipeUpIn {
+    0% {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  .analytic-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 1rem;
+    border-radius: 0.4rem;
+    border: solid 1px rgb(190, 190, 190);
+    cursor: pointer;
+  }
+  
+  .analytic-top-container,
+  .analytic-bottom-container {
+    transition: all 0.5s ease;
+  }
+  
+  .swipe-out {
+    animation: swipeUpOut 0.5s ease forwards;
+  }
+  
+  .swipe-in {
+    animation: swipeUpIn 0.5s ease forwards;
+  }
+  
+  .logo-container img {
+    width: 1.6rem;
+  }
+  
+  .number-container {
+    font-size: 2rem;
+    font-weight: 600;
+  }
+  
+  .analytic-title {
+    font-size: 1.2rem;
+    font-weight: 400;
+  }
+  
