@@ -11,13 +11,12 @@
     padding: 0.725rem;
     position: sticky;
     display: flex;
-    z-index: 10;
+    z-index: 100;
     top: 1rem;
 }
 body.dark-mode .navbar-container {
     background: var(--dark-navbar-bg);
 }
-
 
 .left-container,
 .navbar-img-container {

@@ -1,8 +1,6 @@
 @import url(../../themes.scss);
 .card-container{
     transition: all var(--transition-speed) ease;
-    -webkit-backdrop-filter: var(--navbar-blur);
-    backdrop-filter: var(--navbar-blur);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -12,7 +10,9 @@
     padding: 1rem;
     background-color: var(--light-navbar-bg);
     border-radius: 1rem;
-    transition: all var(--transition-speed) ease;
+}
+.card-container *{
+    backdrop-filter: none;
 }
 body.dark-mode .card-container{
     background-color: var(--dark-navbar-bg);
@@ -34,11 +34,13 @@ body.dark-mode .card-container:hover{
 .project-screenshot-container{
     display: flex;
     justify-content: center;
+    width: 100%;
 }
 .project-screenshot-container img{
     width: 250px;
     height: 250px;
     border-radius: 1rem;
+    object-fit: fill;
 }
 .info-text-container{
     display: flex;

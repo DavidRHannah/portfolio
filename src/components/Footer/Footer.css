@@ -1,19 +1,42 @@
+@import url(../../themes.scss);
+
 .footer-container {
-    transition: all var(--transition-speed) ease;
-    -webkit-backdrop-filter: var(--footer-blur);
-    backdrop-filter: var(--footer-blur);
-    background: var(--light-footer-bg);
-    border-radius: var(--footer-radius);
-    justify-content: space-between;
-    color: var(--light-text);
-    flex-direction: column;
+    position: relative;
+    width: 100%;
+    height: auto;
     margin-bottom: 2rem;
-    padding: 2rem;
-    display: flex;
+    /* outline: solid 1px red; */
 }
-body.dark-mode .footer-container {
-    -webkit-backdrop-filter: var(--footer-blur);
+
+/* Background Image */
+.footer-container img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+    object-fit: scale-down;
+}
+
+.footer-content-container {
+    /* outline: solid 1px red; */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2rem;
+    border-radius: var(--footer-radius);
+    background: var(--light-footer-bg);
     backdrop-filter: var(--footer-blur);
+    color: var(--light-text);
+    transition: all var(--transition-speed) ease;
+    position: relative;
+    z-index: 1;
+    margin-left: 5rem;
+    margin-right: 5rem;
+}
+
+body.dark-mode .footer-content-container {
     background: var(--dark-footer-bg);
     color: var(--dark-text);
 }
@@ -22,8 +45,14 @@ body.dark-mode .footer-container {
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-start;
-    gap: 20rem;
+    gap: 12rem;
     margin-top: 1rem;
+}
+
+@media (max-width: 600px) {
+    .footer-link-container {
+        gap: 5rem;
+    }
 }
 
 .link-container-column {
@@ -33,22 +62,24 @@ body.dark-mode .footer-container {
 }
 
 .footer-link {
-    transition: color var(--transition-speed) ease-in-out;
     color: var(--link-color);
     text-decoration: none;
     margin-bottom: 2rem;
-}
-body.dark-mode .footer-link {
-    color: var(--dark-link-color);
+    transition: color var(--transition-speed) ease-in-out;
 }
 
 .footer-link:hover {
     color: var(--link-hover);
 }
+
+body.dark-mode .footer-link {
+    color: var(--dark-link-color);
+}
+
 body.dark-mode .footer-link:hover {
     color: var(--dark-link-hover);
 }
 
 .misc-container {
-    margin-top: 5rem;
+    margin-top: 2rem;
 }

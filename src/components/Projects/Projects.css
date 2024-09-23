@@ -1,3 +1,5 @@
+@import url(../../themes.scss);
+
 .projects-container{
     margin-bottom: 4rem;
 }
@@ -8,7 +10,6 @@
     column-gap: 1rem;
     row-gap: 1rem;
     place-items: center;    
-    transition: ease all 500ms;
 }
 @media screen and (max-width: 1024px) {
     .project-cards-container{

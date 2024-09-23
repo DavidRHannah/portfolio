@@ -1,37 +1,33 @@
+@import url('./themes.scss');
 .App {
-  text-align: center;
+  min-width: 28rem;
+  max-width: 60rem;
+  margin: 0;
+  margin: 1rem auto;
+  margin-top: 0;
+  color: var(--light-text);
+  height: 100%;
+  /* outline: solid yellowgreen 4px; */
+} 
+body.dark-mode{
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
+}
+body.dark-mode .App{
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.top{
+  display: block;
+  position: absolute; 
+  top: 0;
+  right: 0;
+  height: auto;
+  left: auto;
+  z-index: 0;
+  width: 100%;
+  height: 20%;
+  object-fit: scale-down;
+  /* outline: solid 2px orange; */
 }
