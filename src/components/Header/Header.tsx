@@ -55,11 +55,10 @@ const Header: React.FC = () => {
       </div>
       <div className="right-container">
         <div className="navbar-link-container">
-          <Link to="/dashboard" className={getActiveLink('/dashboard')}>Dashboard</Link>
-          <Link to="/projects" className={getActiveLink('/projects')}>Projects</Link>
-          <Link to="/about" className={getActiveLink('/about')}>About</Link>
-          <Link to="/guestbook" className={getActiveLink('/guestbook')}>Guestbook</Link>
-          <Link to="/uses" className={getActiveLink('/uses')}>Uses</Link>
+          <Link to="/dashboard" className={getActiveLink('/dashboard') + " link"}>Dashboard</Link>
+          <Link to="/projects" className={getActiveLink('/projects') + " link"}>Projects</Link>
+          <Link to="/about" className={getActiveLink('/about') + " link"}>About</Link>
+          <Link to="/guestbook" className={getActiveLink('/guestbook') + " link"}>Guestbook</Link>
         </div>
         <div className="button-container">
           <button className="toggle" onClick={() => setIsDarkMode(!isDarkMode)}>
@@ -77,7 +76,6 @@ const Header: React.FC = () => {
           <Link to="/projects" className={getActiveLink('/projects')} onClick={closeDropdown}>Projects</Link>
           <Link to="/about" className={getActiveLink('/about')} onClick={closeDropdown}>About</Link>
           <Link to="/guestbook" className={getActiveLink('/guestbook')} onClick={closeDropdown}>Guestbook</Link>
-          <Link to="/uses" className={getActiveLink('/uses')} onClick={closeDropdown}>Uses</Link>
         </div>
       </div>
     </div>

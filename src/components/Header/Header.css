@@ -45,14 +45,14 @@ body.dark-mode .navbar-img-container img {
     display: flex;
 }
 
-.navbar-link-container a {
+.navbar-link-container .link {
     transition: all var(--transition-speed) ease-in-out;
     font-size: var(--font-size);
     color: var(--link-color);
     text-decoration: none;
     position: relative;
 }
-body.dark-mode a {
+body.dark-mode .link {
     color: var(--dark-link-color);
 }
 

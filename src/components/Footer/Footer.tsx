@@ -24,14 +24,9 @@ const Footer = () => {
               <Link to="/guestbook" className="footer-link">
                 Guestbook
               </Link>
-              <Link to="/uses" className="footer-link">
-                Uses
-              </Link>
               <a href="https://github.com/DavidRHannah/portfolio" className="footer-link" target="_blank" rel="noopener noreferrer">
                 Github
               </a>
-            </div>
-            <div className="link-container-column">
               <a href="https://linkedin.com/in/davidrhannah" className="footer-link" target="_blank" rel="noopener noreferrer">
                 LinkedIn
               </a>

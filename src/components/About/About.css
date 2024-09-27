@@ -1,0 +1,207 @@
+.about-content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    padding-top: 0;
+}
+
+/* Introduction Section */
+.introduction {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 2rem;
+}
+
+.introduction-text {
+  flex: 1;
+  padding-right: 2rem;
+}
+
+.introduction-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.introduction-text p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+.introduction-image img {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Section Icons */
+.section-icon {
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+  margin-right: 0.5rem;
+}
+body.dark-mode .section-icon{
+  filter: invert(80%);
+}
+
+.education, .technical-skills, .experience, .interests, .awards, .certifications {
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 2rem;
+  /* outline: solid 1px red; */
+
+}
+
+.education h3, .technical-skills h3, .experience h3, .interests h3, .awards h3, .certifications h3{
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+/* Education Section */
+.education-details {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.education-details h4 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Technical Skills Section */
+.technical-skills .skills-list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.technical-skills .skills-list ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+}
+
+.technical-skills .skills-list li {
+  margin-bottom: 0.5rem;
+}
+
+/* Experience Section */
+.experience .experience-item {
+  margin-bottom: 1rem;
+}
+
+.experience .experience-item h4 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.experience .experience-item p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Personal Interests Section */
+.interests p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+/* Awards Section */
+.awards .award-item {
+  margin-bottom: 1rem;
+}
+
+.awards .award-item h4 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.awards .award-item h4 img {
+  width: 42px;
+  padding-right: 0.8rem;
+}
+body.dark-mode .awards .award-item h4 img{
+  filter: invert(100%);
+}
+.awards .award-item p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Certifications Section */
+.certifications .certification-item {
+  margin-bottom: 1rem;
+}
+
+.certifications .certification-item h4 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.certifications .certification-item h4 img {
+  width: 42px;
+  padding-right: 0.8rem;
+}
+body.dark-mode .certifications .certification-item h4 img{
+  filter: invert(100%);
+}
+.certifications .certification-item p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+
+/* Download Resume Section */
+.download-resume {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.resume-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  background-color: #28a745;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.resume-button:hover {
+  background-color: #218838;
+  color: white;
+}
+
+.download-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 0.5rem;  
+}
+
+@media (max-width: 768px) {
+  .introduction {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .introduction-text {
+    padding-right: 0;
+    margin-bottom: 2rem;
+  }
+
+  .technical-skills .skills-list {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .technical-skills .skills-list ul {
+    margin: 0;
+  }
+}

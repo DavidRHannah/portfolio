@@ -7,7 +7,6 @@ import About from './components/About/About';
 import Projects from './components/Projects/Projects';
 import Dashboard from './components/Dashboard/Dashboard';
 import Guestbook from './components/Guestbook/Guestbook';
-import Uses from './components/Uses/Uses';
 import Footer from './components/Footer/Footer';
 import BackgroundTop from './background-top.png';
 
@@ -23,7 +22,6 @@ function App() {
           <Route path="/projects" element={<Projects />} />
           <Route path="/about" element={<About />} />
           <Route path="/guestbook" element={<Guestbook />} />
-          <Route path="/uses" element={<Uses />} />
         </Routes>
         <Footer />
       </div>
