@@ -12,6 +12,9 @@ import CplusplussIcon from './icons/cplusplus.svg';
 import PythonIcon from './icons/python.svg';
 import FigmaIcon from './icons/figma.svg';
 import GitIcon from './icons/git.svg';
+import NpmIcon from './icons/npm.svg';
+import ViteIcon from './icons/vitejs.svg';
+import SassIcon from './icons/sass.svg';
 import StarIcon from './icons/star.png';
 import GithubIcon from './icons/github-mark.svg'
 import RedirectLink from './icons/open-in-new-icon.png';
@@ -81,6 +84,19 @@ const Home = () => {
               <img src={GitIcon} alt="Git" />
               <p>Git</p>
             </div>
+            <div className="skill">
+              <img src={NpmIcon} alt="Npm" />
+              <p>NPM</p>
+            </div>
+            <div className="skill">
+              <img src={ViteIcon} alt="ViteJS" />
+              <p>ViteJS</p>
+            </div>
+            <div className="skill">
+              <img src={SassIcon} alt="Sass" />
+              <p>Sass</p>
+            </div>
+
             {/* Add more skills as needed */}
           </div>
         </section>

@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@vitejs/plugin-react-swc": "^3.7.0",
+    "firebase": "^10.13.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.2",
@@ -36,6 +37,7 @@
     ]
   },
   "devDependencies": {
+    "@types/node": "^22.7.4",
     "@types/react": "^18.3.10",
     "@types/react-dom": "^18.3.0",
     "sass-embedded": "^1.79.4"
