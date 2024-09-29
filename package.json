@@ -10,8 +10,7 @@
     "react-router-dom": "^6.26.2",
     "vite": "^5.4.8",
     "vite-plugin-svgr": "^4.2.0",
-    "vite-tsconfig-paths": "^5.0.1",
-    "web-vitals": "^4.2.3"
+    "vite-tsconfig-paths": "^5.0.1"
   },
   "scripts": {
     "start": "vite",
@@ -37,9 +36,13 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^6.5.0",
+    "@testing-library/react": "^16.0.1",
+    "@types/jest": "^29.5.13",
     "@types/node": "^22.7.4",
     "@types/react": "^18.3.10",
     "@types/react-dom": "^18.3.0",
-    "sass-embedded": "^1.79.4"
+    "sass-embedded": "^1.79.4",
+    "web-vitals": "^4.2.3"
   }
 }
