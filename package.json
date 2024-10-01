@@ -3,7 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@firebase/auth": "^1.7.9",
+    "@firebase/firestore": "^4.7.2",
+    "@vercel/node": "^3.2.17",
     "@vitejs/plugin-react-swc": "^3.7.0",
+    "axios": "^1.7.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
     "firebase": "^10.13.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -38,10 +45,13 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^6.5.0",
     "@testing-library/react": "^16.0.1",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
     "@types/jest": "^29.5.13",
     "@types/node": "^22.7.4",
     "@types/react": "^18.3.10",
     "@types/react-dom": "^18.3.0",
+    "@typescript-eslint/eslint-plugin-tslint": "^7.0.2",
     "sass-embedded": "^1.79.4",
     "web-vitals": "^4.2.3"
   }
