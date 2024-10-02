@@ -1,33 +1,100 @@
 .analytic-container {
-  background-color: #f9f9f9;
-  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  background: rgb(255, 255, 255);
+  border-radius: 8px;
   padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  margin: 10px;
-  width: 200px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  opacity: 0;
 }
 
-.analytic-content-container {
+.top-container{
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  gap: 1rem;
 }
 
-.analytic-title {
-  font-size: 18px;
-  font-weight: bold;
-  margin: 10px 0;
+.analytic-container:hover {
+  background: rgb(236, 236, 236);
 }
 
-.analytic-value {
-  font-size: 24px;
-  color: #333;
+body.dark-mode .analytic-container {
+  background: rgb(24 24 27);
+}
+body.dark-mode .analytic-container:hover {
+  background: rgb(39, 39, 42);
 }
 
 .analytic-icon {
-  width: 40px;
-  height: 40px;
-  margin-bottom: 10px;
+  width: 36px;
+  height: 36px;
+}
+body.dark-mode .analytic-icon {
+  filter: invert(100%);
+}
+
+.analytic-title {
+  font-size: 1.325rem;
+}
+body.dark-mode .analytic-title {
+  color: white;
+}
+
+.analytic-value {
+  font-size: 1.8em;
+  font-weight: bold;
+  color: #333;
+}
+body.dark-mode .analytic-value {
+  color: white;
+}
+
+.new-content {
+  display: flex;
+  justify-content: center; 
+  padding-top: 1rem;
+  align-items: center;
+  position: absolute;
+  font-weight: bold;
+  font-size: 1.5rem;
+  transition: filter 200ms ease-in-out;
+  
+}
+body.dark-mode .new-content{
+  filter: invert(80%);
+}
+
+.new-content:hover{
+    filter: invert(40%);
+}
+body.dark-mode .new-content:hover{
+  filter: invert(100%);
+}
+.hover-link {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  text-decoration: none;
+  gap: 0.3rem;
+  color: #333;
+  cursor: pointer;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1.5rem;
+}
+.redirect-icon{
+  width: 20px;
+  height: 20px;
+  filter: invert(100%);
+  text-align: center;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
