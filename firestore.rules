@@ -4,6 +4,7 @@ service cloud.firestore {
     match /guestbookEntries/{guestbookEntryId} {
       // Allow read access to all users
       allow read: if true;
+      allow write: if true;
 
       // Allow create (add) only if the user is authenticated and data is valid
       allow create: if request.auth != null
