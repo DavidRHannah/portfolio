@@ -1,3 +1,4 @@
+rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
     match /guestbookEntries/{guestbookEntryId} {
@@ -6,23 +7,18 @@ service cloud.firestore {
 
       // Allow create (add) only if the user is authenticated and data is valid
       allow create: if request.auth != null
-                    && request.resource.data.get('userId') == request.auth.uid
-                    && request.resource.data.get('username') is string
-                    && request.resource.data.get('profilePicture') is string
-                    && request.resource.data.get('comment') is string
-                    && request.resource.data.get('comment').size() > 0
-                    && request.resource.data.get('timestamp') == request.time;
+                    && request.resource.data.userId == request.auth.uid
+                    && request.resource.data.username is string
+                    && request.resource.data.profilePicture is string
+                    && request.resource.data.comment is string
+                    && request.resource.data.comment.size() > 0
+                    && request.resource.data.timestamp != null;
 
       // Allow users to update their own entries
-      allow update: if request.auth.uid == resource.data.get('userId');
+      allow update: if request.auth.uid == resource.data.userId;
 
       // Disallow deletes
       allow delete: if false;
-    }
-
-    // Deny all other access
-    match /{document=**} {
-      allow read, write: if false;
     }
   }
 }
