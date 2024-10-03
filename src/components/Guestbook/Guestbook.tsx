@@ -45,6 +45,7 @@ const Guestbook = () => {
   useEffect(()=>{
     // Fetch guestbook entries
     const guestbookCollection = collection(db, 'guestbookEntries');
+    console.log(guestbookCollection);
     getDocs(guestbookCollection)
       .then((snapshot) => {
         const entriesData = snapshot.docs.map((doc) => ({
