@@ -51,6 +51,7 @@ const Guestbook = () => {
           id: doc.id,
           ...doc.data()
         }));
+        console.log(entriesData);
         setEntries(entriesData);
       })
       .catch((error) => {
