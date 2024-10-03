@@ -1,0 +1,28 @@
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /guestbookEntries/{guestbookEntryId} {
+      // Allow read access to all users
+      allow read: if true;
+
+      // Allow create (add) only if the user is authenticated and data is valid
+      allow create: if request.auth != null
+                    && request.resource.data.get('userId') == request.auth.uid
+                    && request.resource.data.get('username') is string
+                    && request.resource.data.get('profilePicture') is string
+                    && request.resource.data.get('comment') is string
+                    && request.resource.data.get('comment').size() > 0
+                    && request.resource.data.get('timestamp') == request.time;
+
+      // Allow users to update their own entries
+      allow update: if request.auth.uid == resource.data.get('userId');
+
+      // Disallow deletes
+      allow delete: if false;
+    }
+
+    // Deny all other access
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
