@@ -35,7 +35,9 @@ const Guestbook = () => {
 
   const firestoreSettings = {
     // host: 'localhost:8081',
-    // ssl:false
+    // ssl:false,
+    experimentalForceLongPolling: true,
+    logLevel: 'debug',
   };
   
   const app = initializeApp(firebaseConfig);
