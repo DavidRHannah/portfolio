@@ -1,176 +1,104 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react';
 import './Guestbook.css';
-import PageHeader from '../PageHeader/PageHeader'
-import { initializeApp } from 'firebase/app';
-import { getAuth, signInWithPopup, GoogleAuthProvider, GithubAuthProvider, onAuthStateChanged, signOut, User as FirebaseUser } from 'firebase/auth';
-import { addDoc, collection, getDocs, initializeFirestore, serverTimestamp, Timestamp} from 'firebase/firestore';
+import PageHeader from '../PageHeader/PageHeader';
+import {  signInWithPopup,  GoogleAuthProvider,  GithubAuthProvider,  onAuthStateChanged,  signOut, User as FirebaseUser } from 'firebase/auth';
+import {  addDoc,  collection,  getDocs,  Timestamp} from 'firebase/firestore';
 import 'firebase/firestore';
+import { db, auth } from '../../firebase-config';
 
 interface Entry {
   id: string;
   [key: string]: any;
 }
 
-interface Comment {
-  userId: string;
-  username: string;
-  profilePicture: string;
-  comment: string;
-  timestamp: Timestamp;
-}
-
 const Guestbook = () => {
   const [entries, setEntries] = useState<Entry[]>([]);
-  const [user, setUser] = useState<FirebaseUser | null >(null);
+  const [user, setUser] = useState<FirebaseUser | null>(null);
 
-  const firebaseConfig = {
-    apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-    authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
-    projectId: "drh-portfolio",
-    storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
-    messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
-    appId: import.meta.env.VITE_FIREBASE_APP_ID,
-    measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
-  };
+  const entriesCollectionRef = collection(db, 'guestbookEntries');
 
-  const firestoreSettings = {
-    // host: 'localhost:8081',
-    // ssl:false,
-    experimentalForceLongPolling: true,
-    logLevel: 'debug',
-  };
-  
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
-  const db = initializeFirestore(app, firestoreSettings);
+  const fetchGuestbookEntries = useCallback(async () => {
+    try {
+      const snapshot = await getDocs(entriesCollectionRef);
+      const entriesData: any = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setEntries(entriesData);
+    } catch (error) {
+      console.error('Error fetching guestbook entries:', error);
+    }
+  }, [entriesCollectionRef]);
 
-  useEffect(()=>{
-    // Fetch guestbook entries
-    const guestbookCollection = collection(db, 'guestbookEntries');
-    console.log(guestbookCollection);
-    getDocs(guestbookCollection)
-      .then((snapshot) => {
-        const entriesData = snapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data()
-        }));
-        console.log(entriesData);
-        setEntries(entriesData);
-      })
-      .catch((error) => {
-        console.error('Error fetching guestbook entries:', error);
-      });
+  useEffect(() => {
+    fetchGuestbookEntries();    
 
-      const unsubscribe = onAuthStateChanged(auth, (user) => {
-        setUser(user);
-      });  
-      return () => unsubscribe();
-  }, [db]);
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setUser(user || null);
+    });
+    
+    return () => unsubscribe();
+  }, [auth]);
 
-  const handleGoogleSignIn = async () => {
-    const provider = new GoogleAuthProvider();
+  const handleSignIn = async (provider: any) => {
     try {
       const result = await signInWithPopup(auth, provider);
-      console.log(result.user);
+      setUser(result.user);
     } catch (error) {
-      console.error('Error signing in with Google:', error);
-    }
-  };
-
-  const handleGitHubSignIn = async () => {
-    const provider = new GithubAuthProvider();
-    try {
-      const result = await signInWithPopup(auth, provider);
-      console.log(result.user);
-    } catch (error) {
-      console.error('Error signing in with GitHub:', error);
-    }
-  };
-
-  const handleNewEntry = async (newEntry:any) => {
-    const guestbookCollection = collection(db, 'guestbookEntries');
-    try {
-      await addDoc(guestbookCollection, newEntry);
-      getDocs(guestbookCollection)
-        .then((snapshot) => {
-          const entriesData = snapshot.docs.map((doc) => ({
-            id: doc.id,
-            ...doc.data()
-          }));
-          setEntries(entriesData);
-        })
-        .catch((error) => {
-          console.error('Error fetching guestbook entries:', error);
-        });
-    } catch (error) {
-      console.error('Error adding new entry:', error);
+      console.error('Error signing in:', error);
     }
   };
 
   const handleSignOut = () => {
-    signOut(auth)
-      .then(() => {
-        // Sign-out successful.
-        setUser(null);
-      })
-      .catch((error) => {
-        // An error happened.
-        console.error('Error signing out:', error);
-      });
+    signOut(auth).then(() => setUser(null)).catch((error) => console.error('Error signing out:', error));
+  };
+
+  const handleNewEntry = async (newEntry: any) => {
+    try {
+      await addDoc(entriesCollectionRef, newEntry);
+      fetchGuestbookEntries();
+    }
+    catch (error){
+      console.log("error while adding new entry: ", error);
+    }
+  };
+
+  const onSubmit = (e: any) => {
+    e.preventDefault();
+    const userId = user!.uid;
+    const username = e.currentTarget.username.value;
+    const profilePicture = user!.photoURL;
+    const comment = e.currentTarget.comment.value;
+    const newEntry = { userId, username, profilePicture, comment, timestamp: Timestamp.fromDate(new Date()) };
+    
+    handleNewEntry(newEntry);
+    e.currentTarget.reset();
   };
 
   return (
     <div className="guestbook-container">
       <PageHeader title="Guestbook" description="Let me know your questions, comments, and thoughts!" />
       <div className="guestbook-content-container">
-        {/* User Authentication Section */}
         {user ? (
           <>
             <h3>Welcome, {user.displayName}!</h3>
-            
-            {/* Form for adding new entries */}
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                const userId = user.uid;
-                const username = e.currentTarget.username.value;
-                const profilePicture = user.photoURL;
-                const comment = e.currentTarget.comment.value;
-                const timestamp = Timestamp.fromDate(new Date());
-                const newEntry = { userId, username, profilePicture, comment, timestamp, };
-                handleNewEntry(newEntry);
-                e.currentTarget.reset();
-              }}
-              className="entry-form"
-            >
+            <form onSubmit={onSubmit} className="entry-form">
               <input type="text" id="username" name="username" required className="input-field" placeholder='Name' />
               <textarea id="comment" name="comment" required className="input-field" placeholder='Express yourself'></textarea>
               <div className="signed-in-buttons">
-                <button onClick={handleSignOut} className="signout-button">
-                  Sign Out
-                </button>
-                <button type="submit" className="submit-button">
-                  Submit
-                </button>
-              </div>              
+                <button onClick={handleSignOut} className="signout-button">Sign Out</button>
+                <button type="submit" className="submit-button">Submit</button>
+              </div>
             </form>
           </>
         ) : (
-          <>
-            <div className="login-container">
-              <div className="login-title-container">
-                Share your thoughts:
-              </div>
-              <div className="login-buttons-container">
-                <button onClick={handleGoogleSignIn} className="signin-button google">
-                  Sign in with Google
-                </button>
-                <button onClick={handleGitHubSignIn} className="signin-button github">
-                  Sign in with GitHub
-                </button>
-              </div>              
+          <div className="login-container">
+            <div className="login-title-container">Share your thoughts:</div>
+            <div className="login-buttons-container">
+              <button onClick={() => handleSignIn(new GoogleAuthProvider())} className="signin-button google">Sign in with Google</button>
+              <button onClick={() => handleSignIn(new GithubAuthProvider())} className="signin-button github">Sign in with GitHub</button>
             </div>
-          </>
+          </div>
         )}
         
         {/* Display guestbook entries */}
@@ -181,23 +109,16 @@ const Guestbook = () => {
             </div>
             <div className="comment-text-container">
               <div className="comment-header-container">
-                <div className="comment-header-username">
-                  <strong>{entry.username}</strong>
-                  </div>
-                <div className="comment-header-timestamp">
-                  {entry.timestamp ? new Date(entry.timestamp.seconds * 1000).toLocaleString() : 'Unknown'}
-                  </div>
+                <div className="comment-header-username"><strong>{entry.username}</strong></div>
+                <div className="comment-header-timestamp">{entry.timestamp ? new Date(entry.timestamp.seconds * 1000).toLocaleString() : 'Unknown'}</div>
               </div>
-              <div className="comment-body">
-                {entry.comment}
-              </div>
+              <div className="comment-body">{entry.comment}</div>
             </div>
           </div>
         ))}
-
       </div>
     </div>
   );
-}
+};
 
-export default Guestbook
+export default Guestbook;
