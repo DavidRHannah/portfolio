@@ -5,6 +5,8 @@ import {  signInWithPopup,  GoogleAuthProvider,  GithubAuthProvider,  onAuthStat
 import {  addDoc,  collection,  getDocs,  Timestamp} from 'firebase/firestore';
 import 'firebase/firestore';
 import { db, auth } from '../../firebase-config';
+import GoogleIcon from './icons/google.svg';
+import GithubIcon from './icons/github.svg';
 
 interface Entry {
   id: string;
@@ -66,7 +68,7 @@ const Guestbook = () => {
   const onSubmit = (e: any) => {
     e.preventDefault();
     const userId = user!.uid;
-    const username = e.currentTarget.username.value;
+    const username = user!.displayName;
     const profilePicture = user!.photoURL;
     const comment = e.currentTarget.comment.value;
     const newEntry = { userId, username, profilePicture, comment, timestamp: Timestamp.fromDate(new Date()) };
@@ -83,7 +85,6 @@ const Guestbook = () => {
           <>
             <h3>Welcome, {user.displayName}!</h3>
             <form onSubmit={onSubmit} className="entry-form">
-              <input type="text" id="username" name="username" required className="input-field" placeholder='Name' />
               <textarea id="comment" name="comment" required className="input-field" placeholder='Express yourself'></textarea>
               <div className="signed-in-buttons">
                 <button onClick={handleSignOut} className="signout-button">Sign Out</button>
@@ -95,8 +96,8 @@ const Guestbook = () => {
           <div className="login-container">
             <div className="login-title-container">Share your thoughts:</div>
             <div className="login-buttons-container">
-              <button onClick={() => handleSignIn(new GoogleAuthProvider())} className="signin-button google">Sign in with Google</button>
-              <button onClick={() => handleSignIn(new GithubAuthProvider())} className="signin-button github">Sign in with GitHub</button>
+              <button onClick={() => handleSignIn(new GoogleAuthProvider())} className="signin-button google"><img src={GoogleIcon} className="sign-in-icon" alt="Google Icon" />Sign in</button>
+              <button onClick={() => handleSignIn(new GithubAuthProvider())} className="signin-button github"><img src={GithubIcon} className="sign-in-icon" alt="Github Icon" />Sign in</button>
             </div>
           </div>
         )}
@@ -112,7 +113,11 @@ const Guestbook = () => {
                 <div className="comment-header-username"><strong>{entry.username}</strong></div>
                 <div className="comment-header-timestamp">{entry.timestamp ? new Date(entry.timestamp.seconds * 1000).toLocaleString() : 'Unknown'}</div>
               </div>
-              <div className="comment-body">{entry.comment}</div>
+              <div className="comment-body">
+                <p>
+                  {entry.comment}
+                </p>
+              </div>
             </div>
           </div>
         ))}
