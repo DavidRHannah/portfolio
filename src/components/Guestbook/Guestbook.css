@@ -190,7 +190,7 @@ body.dark-mode .entry-card {
 body.dark-mode .comment-header-container {
   color: #ccc;
 }
-.comment-header-username {
+body.dark-mode .comment-header-username {
   color: white;
 }
 body.dark-mode .comment-header-timestamp {
