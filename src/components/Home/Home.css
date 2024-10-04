@@ -1,68 +1,62 @@
-.home-container {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 0;
-}
+
 .home-content-container{
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding: 2rem;
 }
 
 /* Hero Section */
 .hero {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
     width: 100%;
-    max-width: 1200px;
+    margin-top: 7rem;
     margin-bottom: 4rem;
 }
 
 .hero-content {
-    flex: 1;
-    padding-right: 2rem;
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    margin: 0 auto;
 }
 
-.name {
+.hero-name {
     font-size: 3rem;
     margin-bottom: 0.5rem;
 }
 
-.title {
+.hero-title {
     font-size: 2rem;
     color: #555;
     margin-bottom: 1.5rem;
+    margin-left: 1.2rem;
+}
+body.dark-mode .hero-title{
+    color: #555;
 }
 
-.description {
+.hero-description {
     font-size: 1.2rem;
     line-height: 1.6;
-    margin-bottom: 2rem;
+    margin-bottom: 1.3rem;    
+    /* outline: solid 1px red; */
+    width: 80%
+
 }
 
 .cta-button {
-    padding: 0.75rem 1.5rem;
     background-color: #007bff;
     color: #fff;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 0.5rem;
     font-size: 1rem;
+    padding: 1rem 0.5rem;
+    white-space: nowrap;
     transition: background-color 0.3s ease;
+    width: 8rem;
+    text-align: center;
 }
 
 .cta-button:hover {
     background-color: #0056b3;
-}
-
-.hero-image img {
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    object-fit: cover;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Skills Section */
@@ -88,18 +82,22 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    
 }
 
-.skill img {
+.skill .skill-icon {
     width: 60px;
     height: 60px;
     margin-bottom: 0.5rem;
 }
 
-.skill p {
+.skill .skill-title {
     font-size: 1rem;
     color: #333;
+}
+
+body.dark-mode .skill .skill-title {
+    font-size: 1rem;
+    color: #555;
 }
 
 /* Projects Preview Section */
@@ -117,12 +115,15 @@
 .projects-preview h3 img{
     margin-left: 2rem;
     width: 60px;
+    height: 60px;
 }
 
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
+    width: 95%;
+    margin: 0 auto;
 }
 
 .project-card {
@@ -158,18 +159,30 @@ body.dark-mode .project-card{
 
 /* Contact Section */
 .contact {
-    width: 100%;
+    width: 80%;
     max-width: 800px;
     text-align: center;
+    margin: 0 auto;
 }
 
 .contact h3 {
     font-size: 2rem;
     margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
 }
+.contact-icon{
+    width: 60px;
+    height: 60px;
+    margin-bottom: 0.5rem;
 
+}
 .contact p {
     font-size: 1.2rem;
+    text-align: center;
+    line-height: 1.75rem;
 }
 
 .contact a {
@@ -181,19 +194,9 @@ body.dark-mode .project-card{
     text-decoration: underline;
 }
 
-@media (max-width: 768px) {
-    .hero {
-    flex-direction: column;
-    }
-
+@media (max-width: 600px) {
     .hero-content {
-    padding-right: 0;
-    text-align: center;
-    }
-
-    .hero-image img {
-    width: 200px;
-    height: 200px;
-    margin-top: 2rem;
+        align-items: center;
+        text-align: center;
     }
 }

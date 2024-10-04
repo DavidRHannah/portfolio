@@ -3,15 +3,15 @@
 .footer-container{
     position: relative;
     width: 100%;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 .footer-container img {
     position: absolute;
     
     width: 100%;
     
-    bottom: 1.1rem;
+    bottom: 0;
     left: 0;
     object-fit: scale-down;
 }
@@ -37,7 +37,7 @@
     margin-right: 3rem;
 
     padding-bottom: 3rem;
-    margin-bottom: 2rem;
+    margin-bottom: 0em;
 }
 .footer-link-container{
     display: grid;

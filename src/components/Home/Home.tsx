@@ -18,18 +18,35 @@ import SassIcon from './icons/sass.svg';
 import StarIcon from './icons/star.png';
 import GithubIcon from './icons/github-mark.svg'
 import RedirectLink from './icons/open-in-new-icon.png';
+import ContactIcon from './icons/contact.png';
 
 const Home = () => {
+  const skillsData = [
+    { skillTitle: 'React', icon: ReactIcon },
+    { skillTitle: 'TypeScript', icon: TypescriptIcon },
+    { skillTitle: 'JavaScript', icon: JavascriptIcon },
+    { skillTitle: 'Node.js', icon: NodeIcon },
+    { skillTitle: 'CSS', icon: CssIcon },
+    { skillTitle: 'HTML', icon: HtmlIcon },
+    { skillTitle: 'TailwindCSS', icon: TailwindIcon },
+    { skillTitle: 'C++', icon: CplusplussIcon },
+    { skillTitle: 'Python', icon: PythonIcon },
+    { skillTitle: 'Figma', icon: FigmaIcon },
+    { skillTitle: 'Git', icon: GitIcon },
+    { skillTitle: 'NPM', icon: NpmIcon },
+    { skillTitle: 'ViteJS', icon: ViteIcon },
+    { skillTitle: 'Sass', icon: SassIcon },
+  ];
   return (
     <div className='home-container'>
       <div className="home-content-container">
         <section className="hero">
           <div className="hero-content">
-            <h1 className="name">David R Hannah</h1>
-            <h2 className="title">Aspiring Software Developer</h2>
-            <p className="description">
+            <div className="hero-name">David R Hannah</div>
+            <div className="hero-title">Aspiring Software Developer</div>
+            <div className="hero-description">
               Passionate about building impactful software solutions. Currently seeking internship opportunities to apply my skills in React, TypeScript, and full-stack development.
-            </p>
+            </div>
             <Link to="/projects" className="cta-button">
               View My Work!
             </Link>
@@ -40,70 +57,18 @@ const Home = () => {
         <section className="skills">
           <h3>Technical Skills</h3>
           <div className="skills-grid">
-            <div className="skill">
-              <img src={ReactIcon} alt="React" />
-              <p>React</p>
-            </div>
-            <div className="skill">
-              <img src={TypescriptIcon} alt="TypeScript" />
-              <p>TypeScript</p>
-            </div>
-            <div className="skill">
-              <img src={JavascriptIcon} alt="JavaScript" />
-              <p>JavaScript</p>
-            </div>
-            <div className="skill">
-              <img src={NodeIcon} alt="Node.js" />
-              <p>Node.js</p>
-            </div>
-            <div className="skill">
-              <img src={CssIcon} alt="CSS" />
-              <p>CSS</p>
-            </div>
-            <div className="skill">
-              <img src={HtmlIcon} alt="HTML" />
-              <p>HTML</p>
-            </div>
-            <div className="skill">
-              <img src={TailwindIcon} alt="Tailwind" />
-              <p>TailwindCSS</p>
-            </div>
-            <div className="skill">
-              <img src={CplusplussIcon} alt="C++" />
-              <p>C++</p>
-            </div>
-            <div className="skill">
-              <img src={PythonIcon} alt="Python" />
-              <p>Python</p>
-            </div>
-            <div className="skill">
-              <img src={FigmaIcon} alt="Figma" />
-              <p>Figma</p>
-            </div>
-            <div className="skill">
-              <img src={GitIcon} alt="Git" />
-              <p>Git</p>
-            </div>
-            <div className="skill">
-              <img src={NpmIcon} alt="Npm" />
-              <p>NPM</p>
-            </div>
-            <div className="skill">
-              <img src={ViteIcon} alt="ViteJS" />
-              <p>ViteJS</p>
-            </div>
-            <div className="skill">
-              <img src={SassIcon} alt="Sass" />
-              <p>Sass</p>
-            </div>
-
-            {/* Add more skills as needed */}
+            {skillsData.map((skill, index) => (
+              <div key={index} className="skill">
+                <img src={skill.icon} alt={skill.skillTitle} className="skill-icon" />
+                <div className="skill-title">{skill.skillTitle}</div>
+              </div>
+            ))}
           </div>
         </section>
 
         {/* Projects Preview Section */}
         <section className="projects-preview">
-          <h3>Project Spotlight<img src={StarIcon} alt="Star Icon" /></h3>
+          <h3>Project Spotlight<img src={StarIcon} alt="Star Icon" className="header-icon star-icon" /></h3>
           
           <div className="projects-grid">
             <div className="project-card">
@@ -127,7 +92,7 @@ const Home = () => {
 
         {/* Contact Section */}
         <section className="contact">
-          <h3>Get in Touch</h3>
+          <h3><img src={ContactIcon} alt="Contact Icon" className="header-icon contact-icon" />Get in Touch</h3>
           <p>
             I'm currently open to internship opportunities. Feel free to reach out to me via{' '}
             <a href="mailto:drhannah@protonmail.com">email</a> or connect with me on{' '}

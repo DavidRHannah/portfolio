@@ -80,12 +80,17 @@ const Guestbook = () => {
   return (
     <div className="guestbook-container">
       <PageHeader title="Guestbook" description="Let me know your questions, comments, and thoughts!" />
+      <div className="pinned-message-container">
+        <div className="pinned-message-title-container">
+          <div className="pinned-message-login-title">Share Your Thoughts!</div>
+        </div>
+      </div>
       <div className="guestbook-content-container">
         {user ? (
           <>
-            <h3>Welcome, {user.displayName}!</h3>
+            <h3 className="guestbook-welcome-message">Welcome, {user.displayName}!</h3>
             <form onSubmit={onSubmit} className="entry-form">
-              <textarea id="comment" name="comment" required className="input-field" placeholder='Express yourself'></textarea>
+              <textarea id="comment" name="comment" required className="input-field" placeholder='Write a comment...'></textarea>
               <div className="signed-in-buttons">
                 <button onClick={handleSignOut} className="signout-button">Sign Out</button>
                 <button type="submit" className="submit-button">Submit</button>
@@ -94,7 +99,6 @@ const Guestbook = () => {
           </>
         ) : (
           <div className="login-container">
-            <div className="login-title-container">Share your thoughts:</div>
             <div className="login-buttons-container">
               <button onClick={() => handleSignIn(new GoogleAuthProvider())} className="signin-button google"><img src={GoogleIcon} className="sign-in-icon" alt="Google Icon" />Sign in</button>
               <button onClick={() => handleSignIn(new GithubAuthProvider())} className="signin-button github"><img src={GithubIcon} className="sign-in-icon" alt="Github Icon" />Sign in</button>
@@ -103,7 +107,8 @@ const Guestbook = () => {
         )}
         
         {/* Display guestbook entries */}
-        {entries.map((entry) => (
+        <div className="entry-card-container">
+          {entries.map((entry) => (
           <div key={entry.id} className="entry-card">
             <div className="profile-picture-container">
               <img src={entry.profilePicture} alt={`${entry.username}'s profile`} className="profile-picture" />
@@ -120,7 +125,9 @@ const Guestbook = () => {
               </div>
             </div>
           </div>
-        ))}
+          ))}
+        </div>
+        
       </div>
     </div>
   );

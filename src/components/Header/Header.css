@@ -3,7 +3,7 @@
 .navbar-container {
     transition: all var(--transition-speed) ease;
     -webkit-backdrop-filter: var(--navbar-blur); 
-    backdrop-filter: var(--navbar-blur);
+    backdrop-filter: var(--navbar-blur) saturate(100%);
     background: var(--light-navbar-bg);
     border-radius: var(--nav-radius);
     justify-content: space-between;
@@ -13,6 +13,8 @@
     display: flex;
     z-index: 100;
     top: 1rem;
+    width: 80%;
+    margin: 0 auto;
 }
 body.dark-mode .navbar-container {
     background: var(--dark-navbar-bg);

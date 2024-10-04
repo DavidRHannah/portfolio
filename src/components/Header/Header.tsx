@@ -32,7 +32,7 @@ const Header: React.FC = () => {
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      const target = event.target as HTMLElement; // Cast to HTMLElement
+      const target = event.target as HTMLElement;
       if (dropdownOpen && !target.closest('.dropdown') && !target.closest('.hamburger')) {
         closeDropdown();
       }

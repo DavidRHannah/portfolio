@@ -66,7 +66,7 @@ const projectsData = [
     screenshot: PortfolioSC,
     techStack: ["HTML", "CSS", "TypeScript", "React"],
     githubLink: "https://github.com/DavidRHannah/portfolio",
-    liveLink: "https://portfolio-beta-hazel-61.vercel.app",
+    liveLink: "https://drh-portfolio.vercel.app",
   },
 
 ];
