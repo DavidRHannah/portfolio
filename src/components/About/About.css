@@ -120,7 +120,16 @@ body.dark-mode .section-icon{
 .awards .award-item {
   margin-bottom: 1rem;
 }
-
+.awards .award-item a{
+  color: rgb(69, 135, 226);
+  text-decoration: none;
+}
+.awards .award-item a:hover{
+  color: rgb(3, 80, 188);
+}
+body.dark-mode .awards .award-item a:hover{
+  color: rgb(141, 181, 237);
+}
 .awards .award-item h4 {
   font-size: 1.5rem;
   margin-bottom: 0.5rem;

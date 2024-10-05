@@ -137,9 +137,11 @@ body.dark-mode .button-container button img {
     right: 1rem;
     gap: 1rem;
     z-index: 9;
+    color: var(--link-color);
 }
 body.dark-mode .dropdown {
     background-color: var(--dark-dropdown-bg);
+    color: var(--dark-link-color);
 }
 .dropdown.open {
     display: flex;
@@ -148,6 +150,21 @@ body.dark-mode .dropdown {
 .button-container button.hamburger {
     cursor: pointer;
     display: none;
+}
+.right-container .dropdown.open > a{
+    color: var(--link-color);
+    text-decoration: none;
+
+}
+body.dark-mode .right-container .dropdown.open > a{
+    color: var(--dark-link-color);
+}
+
+.right-container .dropdown.open > a:hover{
+    color: black;
+}
+body.dark-mode .right-container .dropdown.open > a:hover{
+    color: white;
 }
 
 @media (max-width: 600px) {
